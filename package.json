@@ -1,0 +1,13 @@
+{
+  "name": "medisyn3",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediSync production-style web app with OTP auth, owner admin, and ESP32 Bluetooth integration",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "twilio": "^5.13.1"
+  }
+}

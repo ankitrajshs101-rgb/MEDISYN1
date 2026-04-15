@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - AI-Powered Healthcare Platform</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%233b82f6' d='M32 56c-2.3 0-4.6-.9-6.3-2.5L10.8 39.2a18 18 0 0 1 25.4-25.4L32 18l-4.2-4.2A18 18 0 1 1 53.2 39.2L38.3 53.5A8.9 8.9 0 0 1 32 56Z'/%3E%3Cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='4.5' d='M12 31h12l4-7 6 16 6-10 3 5h9'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="mainSiteContent">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>MediSync</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#doctors">Doctors</a>
+                <a href="#testimonials">Testimonials</a>
+            </div>
+            <div class="nav-buttons" id="navButtons">
+                <button class="btn-outline" id="adminPortalBtn"><i class="fas fa-user-shield"></i> Admin</button>
+                <button class="btn-outline" id="signInBtn">Sign In</button>
+                <button class="btn-primary" id="signUpBtn">Create Account</button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-robot"></i> AI-Powered Healthcare
+            </div>
+            <h1>Smart health monitoring, <span class="gradient-text">simplified</span></h1>
+            <p>Connect patients and doctors through real-time vitals tracking, AI insights, and seamless virtual consultations all in one platform.</p>
+            <div class="hero-stats">
+                <div class="stat"><i class="fas fa-shield-alt"></i><span>HIPAA Compliant</span></div>
+                <div class="stat"><i class="fas fa-users"></i><span>12,400+ users</span></div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-large" id="startConsultBtn"><i class="fas fa-play"></i> Start Free Trial</button>
+                <button class="btn-outline btn-large" id="openAiConsultationBtn"><i class="fas fa-comments"></i> Free AI Consultation</button>
+                <button class="btn-outline btn-large" id="watchDemoBtn"><i class="fas fa-video"></i> Watch Demo</button>
+            </div>
+        </div>
+        <div class="hero-dashboard">
+            <div class="vitals-card">
+                <div class="vitals-header">
+                    <h3>Live Vitals Monitor</h3>
+                    <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-info"><i class="fas fa-heart"></i><span>Heart Rate</span></div>
+                    <div class="vital-value" id="heartRate">72</div>
+                    <div class="vital-unit">bpm</div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-info"><i class="fas fa-tachometer-alt"></i><span>Blood Pressure</span></div>
+                    <div class="vital-value" id="bloodPressure">118/76</div>
+                    <div class="vital-unit">mmHg</div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-info"><i class="fas fa-lungs"></i><span>SpO2</span></div>
+                    <div class="vital-value" id="spo2">98</div>
+                    <div class="vital-unit">%</div>
+                </div>
+                <div class="vital-item">
+                    <div class="vital-info"><i class="fas fa-thermometer-half"></i><span>Temperature</span></div>
+                    <div class="vital-value" id="temperature">36.6</div>
+                    <div class="vital-unit">°C</div>
+                </div>
+                <div class="ai-insight" id="aiInsight">
+                    <i class="fas fa-brain"></i><span>AI Insight: All vitals within normal range</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ai-consultation-home" id="ai-consultation-home">
+        <div class="ai-consult-shell">
+            <div class="ai-consult-copy">
+                <div class="hero-badge"><i class="fas fa-sparkles"></i> Free AI Consultation</div>
+                <h2>Start a quick health chat <span class="gradient-text">without waiting for a doctor</span></h2>
+                <p>Ask about symptoms, get simple triage guidance, and understand whether you should rest at home, book a doctor, or seek urgent help. This free assistant is designed for first-step guidance only.</p>
+                <div class="ai-consult-points">
+                    <span><i class="fas fa-bolt"></i> Instant chat guidance</span>
+                    <span><i class="fas fa-notes-medical"></i> Symptom-based suggestions</span>
+                    <span><i class="fas fa-shield-heart"></i> Emergency safety prompts</span>
+                </div>
+                <div class="ai-home-categories">
+                    <button type="button" class="ai-home-category" data-ai-prompt="I have fever, body pain, and weakness since yesterday.">
+                        <i class="fas fa-temperature-high"></i>
+                        <strong>Fever & Infection</strong>
+                        <span>Body pain, chills, weakness</span>
+                    </button>
+                    <button type="button" class="ai-home-category" data-ai-prompt="I have cough, sore throat, and blocked nose for 2 days.">
+                        <i class="fas fa-head-side-cough"></i>
+                        <strong>Cough & Cold</strong>
+                        <span>Sore throat, mucus, tiredness</span>
+                    </button>
+                    <button type="button" class="ai-home-category" data-ai-prompt="I have stomach pain, vomiting, and loose motion since today.">
+                        <i class="fas fa-stomach"></i>
+                        <strong>Stomach Issues</strong>
+                        <span>Pain, loose motion, vomiting</span>
+                    </button>
+                    <button type="button" class="ai-home-category" data-ai-prompt="I have headache, dizziness, and weakness for 3 days.">
+                        <i class="fas fa-brain"></i>
+                        <strong>Headache & Dizziness</strong>
+                        <span>Headache, stress, spinning</span>
+                    </button>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary btn-large" id="startAiTriageBtn"><i class="fas fa-comment-medical"></i> Start AI Chat</button>
+                </div>
+            </div>
+            <div class="ai-consult-preview">
+                <div class="ai-preview-card">
+                    <div class="ai-preview-top">
+                        <div class="ai-preview-brand">
+                            <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                            <div>
+                                <h4>MediSync AI Care Guide</h4>
+                                <p>Free first-step consultation</p>
+                            </div>
+                        </div>
+                        <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+                    </div>
+                    <div class="ai-preview-bubble ai">
+                        <strong>AI Guide</strong>
+                        <p>Hello. Tell me your symptoms, age group, and how long you have felt unwell.</p>
+                    </div>
+                    <div class="ai-preview-bubble user">
+                        <strong>You</strong>
+                        <p>I have fever, sore throat, and body pain since yesterday.</p>
+                    </div>
+                    <div class="ai-preview-bubble ai">
+                        <strong>AI Guide</strong>
+                        <p>This may be a viral infection. Rest, hydration, and temperature monitoring can help, but see a doctor if breathing trouble, dehydration, or persistent high fever appears.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Everything you need for <span class="gradient-text">connected care</span></h2>
+            <p>From real-time monitoring to AI-powered insights.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Real-time vitals</h3>
+                <p>Monitor BP, heart rate, SpO2, temperature.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-video"></i></div>
+                <h3>Virtual consultations</h3>
+                <p>HD video, audio, and chat.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI health insights</h3>
+                <p>Intelligent analysis of vitals.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-file-pdf"></i></div>
+                <h3>Medical Reports</h3>
+                <p>Upload and share reports securely.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-prescription-bottle"></i></div>
+                <h3>Digital prescriptions</h3>
+                <p>Doctors write and share PDFs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Hospital locator</h3>
+                <p>Find nearest hospitals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2>Get started in <span class="gradient-text">minutes</span></h2>
+            <p>Four simple steps.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">01</div>
+                <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                <h3>Create your account</h3>
+                <p>Sign up as patient or doctor.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">02</div>
+                <div class="step-icon"><i class="fas fa-bluetooth-b"></i></div>
+                <h3>Connect your device</h3>
+                <p>Pair Bluetooth health monitor.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">03</div>
+                <div class="step-icon"><i class="fas fa-user-md"></i></div>
+                <h3>Consult with doctors</h3>
+                <p>Book virtual consultation.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">04</div>
+                <div class="step-icon"><i class="fas fa-chart-simple"></i></div>
+                <h3>Track & improve</h3>
+                <p>View AI insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors" class="doctors">
+        <div class="section-header">
+            <h2>Top <span class="gradient-text">Specialists</span></h2>
+            <p>Connect with experienced doctors</p>
+        </div>
+        <div class="doctors-grid" id="doctorsGrid"></div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="section-header">
+            <h2>Trusted by <span class="gradient-text">professionals</span></h2>
+            <p>What our users say</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>MediSync transformed how I monitor my patients remotely.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div><h4>Dr. Priya Sharma</h4><p>Cardiologist</p></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote"><i class="fas fa-quote-left"></i></div>
+                <p>I can track my blood pressure daily without visiting the hospital.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RM</div>
+                    <div><h4>Rahul Mehta</h4><p>Patient</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hospital-locator">
+        <div class="locator-content">
+            <h2>Find <span class="gradient-text">hospitals near you</span></h2>
+            <p>Locate nearest facilities</p>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="hospitalSearch" placeholder="Enter city or pincode...">
+                <button id="searchHospitalsBtn"><i class="fas fa-location-dot"></i> Search</button>
+            </div>
+            <div id="hospitalResults" class="hospital-results"></div>
+        </div>
+        <div class="locator-map">
+            <div class="map-placeholder" id="hospitalMapContainer">
+                <i class="fas fa-map"></i>
+                <p>Interactive Map</p>
+                <span>Showing nearby hospitals</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="iot-section">
+        <div class="iot-content">
+            <h2>Connect Your <span class="gradient-text">Health Devices</span></h2>
+            <p>Sync your wearable devices</p>
+            <div class="iot-devices-showcase">
+                <div class="iot-device-card" onclick="openModal('iotModal')">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Heart Monitor</h4>
+                    <span>Connect</span>
+                </div>
+                <div class="iot-device-card" onclick="openModal('iotModal')">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h4>BP Monitor</h4>
+                    <span>Connect</span>
+                </div>
+                <div class="iot-device-card" onclick="openModal('iotModal')">
+                    <i class="fas fa-lungs"></i>
+                    <h4>Pulse Oximeter</h4>
+                    <span>Connect</span>
+                </div>
+                <div class="iot-device-card" onclick="openModal('iotModal')">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h4>Temperature Monitor</h4>
+                    <span>Connect</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to modernize your healthcare?</h2>
+            <p>Join thousands of doctors and patients.</p>
+            <button class="btn-white" id="finalCtaBtn">Create free account →</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo"><i class="fas fa-heartbeat"></i><span>MediSync</span></div>
+                <p>AI-powered healthcare platform.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MediSync - AI-Powered Healthcare Platform.</p>
+        </div>
+    </footer>
+</div>
+
+<div id="adminPanel" style="display: none;">
+    <div class="admin-panel-container">
+        <div class="admin-header">
+            <div class="admin-logo"><i class="fas fa-heartbeat"></i><span>MediSync Admin</span></div>
+            <button id="adminLogoutBtn" class="btn-outline"><i class="fas fa-sign-out-alt"></i> Exit Admin</button>
+        </div>
+        <div class="admin-stats-grid">
+            <div class="admin-stat-card clickable" data-filter="all" data-type="doctor" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <i class="fas fa-user-md"></i><h3 id="adminTotalDoctors">0</h3><p>Total Doctors</p>
+            </div>
+            <div class="admin-stat-card clickable" data-filter="pending" data-type="doctor" style="background: #f59e0b;">
+                <i class="fas fa-clock"></i><h3 id="adminPendingDoctors">0</h3><p>Pending Approvals</p>
+            </div>
+            <div class="admin-stat-card clickable" data-filter="approved" data-type="doctor" style="background: #10b981;">
+                <i class="fas fa-check-circle"></i><h3 id="adminApprovedDoctors">0</h3><p>Approved Doctors</p>
+            </div>
+            <div class="admin-stat-card clickable" data-filter="rejected" data-type="doctor" style="background: #ef4444;">
+                <i class="fas fa-times-circle"></i><h3 id="adminRejectedDoctors">0</h3><p>Rejected Doctors</p>
+            </div>
+            <div class="admin-stat-card clickable" data-filter="all" data-type="patient" style="background: #3b82f6;">
+                <i class="fas fa-users"></i><h3 id="adminTotalPatients">0</h3><p>Total Patients</p>
+            </div>
+        </div>
+        <div class="admin-analytics-shell">
+            <div class="admin-analytics-header">
+                <div>
+                    <div class="patient-profile-badge"><i class="fas fa-chart-line"></i> Platform Analytics</div>
+                    <h3>Owner Insight Board</h3>
+                    <p>Follow how consultations, reports, and prescriptions are moving across the platform.</p>
+                </div>
+            </div>
+            <div class="admin-analytics-grid">
+                <div class="admin-analytics-card">
+                    <span>Consultations</span>
+                    <strong id="adminTotalConsultations">0</strong>
+                    <p>All patient-doctor requests created so far.</p>
+                </div>
+                <div class="admin-analytics-card">
+                    <span>Scheduled Sessions</span>
+                    <strong id="adminScheduledConsultations">0</strong>
+                    <p>Consultations already planned by doctors.</p>
+                </div>
+                <div class="admin-analytics-card">
+                    <span>Active Care</span>
+                    <strong id="adminActiveConsultations">0</strong>
+                    <p>Sessions that doctors have marked active.</p>
+                </div>
+                <div class="admin-analytics-card">
+                    <span>Completed Care</span>
+                    <strong id="adminCompletedConsultations">0</strong>
+                    <p>Consultations fully completed and closed.</p>
+                </div>
+                <div class="admin-analytics-card">
+                    <span>Uploaded Reports</span>
+                    <strong id="adminTotalReports">0</strong>
+                    <p>Medical PDFs shared by patients for review.</p>
+                </div>
+                <div class="admin-analytics-card">
+                    <span>Prescriptions</span>
+                    <strong id="adminTotalPrescriptions">0</strong>
+                    <p>Doctor prescriptions generated on MediSync.</p>
+                </div>
+            </div>
+        </div>
+        <div class="admin-visuals-shell">
+            <section class="admin-visual-panel">
+                <div class="admin-visual-header">
+                    <div>
+                        <span class="admin-visual-label">Doctor Pipeline</span>
+                        <h3>Approval Distribution</h3>
+                    </div>
+                    <span id="adminDoctorPipelineCaption" class="admin-visual-caption">Monitoring onboarding quality</span>
+                </div>
+                <div id="adminDoctorPipeline" class="admin-progress-stack"></div>
+            </section>
+            <section class="admin-visual-panel">
+                <div class="admin-visual-header">
+                    <div>
+                        <span class="admin-visual-label">Care Lifecycle</span>
+                        <h3>Consultation Flow</h3>
+                    </div>
+                    <span id="adminCareFlowCaption" class="admin-visual-caption">Tracking patient care progress</span>
+                </div>
+                <div id="adminCareFlow" class="admin-progress-stack"></div>
+            </section>
+        </div>
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="doctors">Doctors Management</button>
+            <button class="admin-tab-btn" data-tab="patients">Patients Management</button>
+        </div>
+        <div id="adminDoctorsSection" class="admin-section active">
+            <div class="admin-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="doctorSearchInput" placeholder="Search by name, specialty, email, or status...">
+            </div>
+            <div id="adminDoctorsList"></div>
+        </div>
+        <div id="adminPatientsSection" class="admin-section">
+            <div class="admin-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="patientSearchInput" placeholder="Search by name, email, or phone...">
+            </div>
+            <div id="adminPatientsList"></div>
+        </div>
+    </div>
+</div>
+
+<div id="roleSelectModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3 id="roleModalTitle"><i class="fas fa-user-circle"></i> Select Your Role</h3>
+            <span class="close-modal" onclick="closeModal('roleSelectModal')">&times;</span>
+        </div>
+        <div class="role-buttons">
+            <button class="btn-primary btn-full" id="patientRoleBtn" onclick="selectRole('patient')"><i class="fas fa-user"></i> I'm a Patient</button>
+            <button class="btn-outline btn-full" id="doctorRoleBtn" onclick="selectRole('doctor')" style="margin-top:1rem;"><i class="fas fa-user-md"></i> I'm a Doctor</button>
+        </div>
+    </div>
+</div>
+
+<div id="patientSignInModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-sign-in-alt"></i> Patient Sign In</h3>
+            <span class="close-modal" onclick="closeModal('patientSignInModal')">&times;</span>
+        </div>
+        <form id="patientSignInForm">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="text" id="patientLoginIdentifier" placeholder="Email ID or Phone Number" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="patientLoginPassword" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword('patientLoginPassword')"><i class="fas fa-eye"></i></span>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Sign In</button>
+        </form>
+        <div class="auth-divider"><span>or</span></div>
+        <button onclick="showPatientSignUp()" class="btn-outline btn-full">Create New Patient Account</button>
+        <p style="text-align:center; margin-top:1rem;"><a href="#" onclick="closeModal('patientSignInModal'); openModal('doctorSignInModal')">Login as Doctor →</a></p>
+        <p style="text-align:center; margin-top:0.5rem;"><a href="#" onclick="openForgotPasswordModal('patient')">Forgot Password?</a></p>
+    </div>
+</div>
+
+<div id="patientSignUpModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-user-plus"></i> Patient Registration</h3>
+            <span class="close-modal" onclick="closeModal('patientSignUpModal')">&times;</span>
+        </div>
+        <form id="patientSignUpForm">
+            <div class="input-group"><i class="fas fa-user"></i><input type="text" id="patientFullName" placeholder="Full Name" required></div>
+            <div class="input-group"><i class="fas fa-phone"></i><input type="tel" id="patientMobile" placeholder="Mobile Number" required></div>
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="patientEmail" placeholder="Email ID" required></div>
+            <div class="input-row">
+                <div class="input-group half"><i class="fas fa-venus-mars"></i><select id="patientGender" required><option value="">Gender</option><option value="male">Male</option><option value="female">Female</option><option value="other">Other</option></select></div>
+                <div class="input-group half"><i class="fas fa-calendar-alt"></i><input type="number" id="patientAge" placeholder="Age" required></div>
+            </div>
+            <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="patientPassword" placeholder="Password" required><span class="toggle-password" onclick="togglePassword('patientPassword')"><i class="fas fa-eye"></i></span></div>
+            <div class="input-group"><i class="fas fa-check-circle"></i><input type="password" id="patientConfirmPassword" placeholder="Confirm Password" required></div>
+            <button type="button" id="patientSendOtpBtn" class="btn-primary btn-full">Send OTP</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem;">Already have an account? <a href="#" onclick="closeModal('patientSignUpModal'); openModal('patientSignInModal')">Sign In</a></p>
+    </div>
+</div>
+
+<div id="patientOtpModal" class="modal">
+    <div class="modal-content auth-modal otp-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-key"></i> Verify OTP</h3>
+            <span class="close-modal" onclick="closeModal('patientOtpModal')">&times;</span>
+        </div>
+        <p class="otp-info">OTP sent to <span id="patientOtpEmailDisplay"></span></p>
+        <div class="otp-input-group">
+            <input type="text" id="patientOtp1" maxlength="1" class="otp-input">
+            <input type="text" id="patientOtp2" maxlength="1" class="otp-input">
+            <input type="text" id="patientOtp3" maxlength="1" class="otp-input">
+            <input type="text" id="patientOtp4" maxlength="1" class="otp-input">
+            <input type="text" id="patientOtp5" maxlength="1" class="otp-input">
+            <input type="text" id="patientOtp6" maxlength="1" class="otp-input">
+        </div>
+        <button id="patientVerifyOtpBtn" class="btn-primary btn-full">Verify & Create Account</button>
+        <p class="resend-otp">Didn't receive OTP? <a href="#" id="patientResendOtpBtn">Resend OTP</a></p>
+    </div>
+</div>
+
+<div id="doctorSignInModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-sign-in-alt"></i> Doctor Sign In</h3>
+            <span class="close-modal" onclick="closeModal('doctorSignInModal')">&times;</span>
+        </div>
+        <form id="doctorSignInForm">
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="doctorLoginEmail" placeholder="Email ID" required></div>
+            <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="doctorLoginPassword" placeholder="Password" required><span class="toggle-password" onclick="togglePassword('doctorLoginPassword')"><i class="fas fa-eye"></i></span></div>
+            <button type="submit" class="btn-primary btn-full">Sign In</button>
+        </form>
+        <div class="auth-divider"><span>or</span></div>
+        <button onclick="showDoctorSignUp()" class="btn-outline btn-full">Create New Doctor Account</button>
+        <p style="text-align:center; margin-top:1rem;"><a href="#" onclick="closeModal('doctorSignInModal'); openModal('patientSignInModal')">Login as Patient →</a></p>
+        <p style="text-align:center; margin-top:0.5rem;"><a href="#" onclick="openForgotPasswordModal('doctor')">Forgot Password?</a></p>
+    </div>
+</div>
+
+<div id="doctorSignUpModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-user-plus"></i> Doctor Registration</h3>
+            <span class="close-modal" onclick="closeModal('doctorSignUpModal')">&times;</span>
+        </div>
+        <form id="doctorSignUpForm">
+            <div class="input-group"><i class="fas fa-user"></i><input type="text" id="doctorFullName" placeholder="Full Name" required></div>
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="doctorEmail" placeholder="Email ID" required></div>
+            <div class="input-group"><i class="fas fa-phone"></i><input type="tel" id="doctorMobile" placeholder="Mobile Number" required></div>
+            <div class="input-group"><i class="fas fa-stethoscope"></i><input type="text" id="doctorSpecialty" placeholder="Specialty" required></div>
+            <div class="input-group"><i class="fas fa-id-card"></i><input type="text" id="doctorLicense" placeholder="License Number" required></div>
+            <div class="input-group"><i class="fas fa-hospital"></i><input type="text" id="doctorClinic" placeholder="Clinic/Hospital"></div>
+            <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="doctorPassword" placeholder="Password" required><span class="toggle-password" onclick="togglePassword('doctorPassword')"><i class="fas fa-eye"></i></span></div>
+            <div class="input-group"><i class="fas fa-check-circle"></i><input type="password" id="doctorConfirmPassword" placeholder="Confirm Password" required></div>
+            <button type="button" id="doctorSendOtpBtn" class="btn-primary btn-full">Send OTP</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem;">Already have an account? <a href="#" onclick="closeModal('doctorSignUpModal'); openModal('doctorSignInModal')">Sign In</a></p>
+    </div>
+</div>
+
+<div id="doctorOtpModal" class="modal">
+    <div class="modal-content auth-modal otp-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-key"></i> Verify OTP</h3>
+            <span class="close-modal" onclick="closeModal('doctorOtpModal')">&times;</span>
+        </div>
+        <p class="otp-info">OTP sent to <span id="doctorOtpEmailDisplay"></span></p>
+        <div class="otp-input-group">
+            <input type="text" id="doctorOtp1" maxlength="1" class="otp-input">
+            <input type="text" id="doctorOtp2" maxlength="1" class="otp-input">
+            <input type="text" id="doctorOtp3" maxlength="1" class="otp-input">
+            <input type="text" id="doctorOtp4" maxlength="1" class="otp-input">
+            <input type="text" id="doctorOtp5" maxlength="1" class="otp-input">
+            <input type="text" id="doctorOtp6" maxlength="1" class="otp-input">
+        </div>
+        <button id="doctorVerifyOtpBtn" class="btn-primary btn-full">Verify & Create Account</button>
+        <p class="resend-otp">Didn't receive OTP? <a href="#" id="doctorResendOtpBtn">Resend OTP</a></p>
+    </div>
+</div>
+
+<div id="adminLoginModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-user-shield"></i> Admin Login</h3>
+            <span class="close-modal" onclick="closeModal('adminLoginModal')">&times;</span>
+        </div>
+        <form id="adminLoginForm">
+            <p class="helper-text">Owner-only access. Use the owner credentials configured on the backend.</p>
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="adminEmail" placeholder="Owner Email" required></div>
+            <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="adminPassword" placeholder="Owner Password" required><span class="toggle-password" onclick="togglePassword('adminPassword')"><i class="fas fa-eye"></i></span></div>
+            <button type="submit" class="btn-primary btn-full">Login as Owner</button>
+        </form>
+        <button onclick="closeModal('adminLoginModal')" class="btn-outline btn-full" style="margin-top:1rem;">Cancel</button>
+    </div>
+</div>
+
+<div id="doctorPortal" style="display: none;">
+    <div class="admin-panel-container doctor-portal-container">
+        <div class="doctor-hero">
+            <div class="doctor-hero-copy">
+                <div class="doctor-hero-badge"><i class="fas fa-stethoscope"></i> Doctor Workspace</div>
+                <h2 id="doctorPortalTitle">Doctor Dashboard</h2>
+                <p id="doctorPortalSubtitle">Review consultations, track patient requests, and stay ready for upcoming care.</p>
+            </div>
+            <button id="doctorPortalBackBtn" class="btn-outline doctor-hero-btn"><i class="fas fa-arrow-left"></i> Back to Site</button>
+        </div>
+        <div class="doctor-insight-grid">
+            <div class="doctor-insight-card doctor-insight-primary">
+                <i class="fas fa-calendar-check"></i><h3 id="doctorConsultationCount">0</h3><p>Total Consultations</p>
+            </div>
+            <div class="doctor-insight-card doctor-insight-success">
+                <i class="fas fa-user-injured"></i><h3 id="doctorPatientCount">0</h3><p>Unique Patients</p>
+            </div>
+            <div class="doctor-insight-card doctor-insight-neutral">
+                <i class="fas fa-heartbeat"></i><h3 id="doctorPortalFocus">Care Ready</h3><p>Stay updated on active requests and follow-ups.</p>
+            </div>
+        </div>
+        <div class="doctor-toolbar">
+            <div class="admin-search-bar doctor-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="doctorPortalSearchInput" placeholder="Search patient by name, email, phone, or symptoms...">
+            </div>
+            <div class="doctor-report-toolbar">
+                <select id="doctorReportFilter">
+                    <option value="all">All Reports</option>
+                    <option value="blood">Blood Tests</option>
+                    <option value="imaging">Imaging</option>
+                    <option value="prescription">Prescriptions</option>
+                    <option value="pdf">PDF Reports</option>
+                </select>
+                <input type="text" id="doctorReportSearchInput" placeholder="Search report name...">
+                <select id="doctorReportSort">
+                    <option value="latest">Latest First</option>
+                    <option value="oldest">Oldest First</option>
+                </select>
+            </div>
+            <div class="doctor-toolbar-note"><i class="fas fa-user-check"></i><span>Only consultations booked with this doctor appear here.</span></div>
+        </div>
+        <div id="doctorConsultationsList" class="doctor-consultations-grid"></div>
+    </div>
+</div>
+
+<div id="patientPortal" style="display: none;">
+    <div class="admin-panel-container patient-portal-container">
+        <div class="patient-hero">
+            <div class="patient-hero-copy">
+                <div class="patient-hero-badge"><i class="fas fa-user-injured"></i> Patient Profile</div>
+                <h2 id="patientPortalTitle">Patient Dashboard</h2>
+                <p id="patientPortalSubtitle">Track your scheduled consultations, active prescriptions, and follow-up care in one place.</p>
+            </div>
+            <button id="patientPortalBackBtn" class="btn-outline doctor-hero-btn"><i class="fas fa-arrow-left"></i> Back to Site</button>
+        </div>
+        <div class="doctor-insight-grid patient-insight-grid">
+            <div class="doctor-insight-card doctor-insight-primary">
+                <i class="fas fa-calendar-day"></i><h3 id="patientConsultationCount">0</h3><p>Consultations</p>
+            </div>
+            <div class="doctor-insight-card doctor-insight-success">
+                <i class="fas fa-prescription-bottle-medical"></i><h3 id="patientPrescriptionCount">0</h3><p>Prescriptions</p>
+            </div>
+            <div class="doctor-insight-card doctor-insight-neutral">
+                <i class="fas fa-bell"></i><h3 id="patientNextVisit">No visit</h3><p>Your next scheduled consultation appears here.</p>
+            </div>
+        </div>
+        <div class="patient-vitals-shell">
+            <div class="patient-vitals-card">
+                <div class="patient-vitals-head">
+                    <h3><i class="fas fa-heartbeat"></i> My Latest Vitals</h3>
+                    <span class="live-badge"><i class="fas fa-circle"></i> LIVE</span>
+                </div>
+                <div class="patient-vitals-grid">
+                    <div class="patient-vital-box">
+                        <span>Heart Rate</span>
+                        <strong id="patientHeartRate">72 bpm</strong>
+                    </div>
+                    <div class="patient-vital-box">
+                        <span>Blood Pressure</span>
+                        <strong id="patientBloodPressure">118/76</strong>
+                    </div>
+                    <div class="patient-vital-box">
+                        <span>SpO2</span>
+                        <strong id="patientSpo2">98%</strong>
+                    </div>
+                    <div class="patient-vital-box">
+                        <span>Temperature</span>
+                        <strong id="patientTemperature">36.6 C</strong>
+                    </div>
+                </div>
+                <div id="patientVitalsInsight" class="patient-vitals-insight">Vitals sync automatically from your live health panel and connected device.</div>
+            </div>
+        </div>
+        <div id="patientSpotlightCard" class="patient-spotlight-card"></div>
+        <section class="patient-profile-shell">
+            <div class="patient-profile-header">
+                <div>
+                    <div class="patient-profile-badge"><i class="fas fa-id-card-alt"></i> Profile & History</div>
+                    <h3>My Medical Snapshot</h3>
+                    <p>Keep your health basics, allergies, and emergency contact ready for every consultation.</p>
+                </div>
+                <button type="button" class="btn-primary" id="patientEditProfileBtn"><i class="fas fa-pen"></i> Edit Profile</button>
+            </div>
+            <div id="patientProfileSummary" class="patient-profile-grid"></div>
+        </section>
+        <section class="patient-history-shell">
+            <div class="patient-profile-header">
+                <div>
+                    <div class="patient-profile-badge"><i class="fas fa-stream"></i> Health Timeline</div>
+                    <h3>My Medical Journey</h3>
+                    <p>Track consultations, prescriptions, and uploaded reports in one clear patient history timeline.</p>
+                </div>
+            </div>
+            <div id="patientHistoryTimeline" class="patient-history-timeline"></div>
+        </section>
+        <div class="patient-sections">
+            <section class="patient-panel">
+                <div class="patient-panel-header">
+                    <h3><i class="fas fa-calendar-check"></i> My Consultations</h3>
+                    <p>See which sessions are scheduled, which chats are enabled, and how to join your doctor.</p>
+                </div>
+                <div id="patientConsultationsList" class="patient-cards-grid"></div>
+            </section>
+            <section class="patient-panel">
+                <div class="patient-panel-header">
+                    <h3><i class="fas fa-file-prescription"></i> My Prescriptions</h3>
+                    <p>All medicines, dosage instructions, and follow-up dates written by your doctor.</p>
+                </div>
+                <div id="patientPrescriptionsList" class="patient-cards-grid"></div>
+            </section>
+            <section class="patient-panel">
+                <div class="patient-panel-header patient-panel-header-split">
+                    <div>
+                        <h3><i class="fas fa-folder-open"></i> My Checkup Reports</h3>
+                        <p>Keep blood tests, scan reports, prescriptions, and discharge papers in one premium report library.</p>
+                    </div>
+                    <button type="button" class="btn-primary" id="patientUploadReportBtn"><i class="fas fa-upload"></i> Upload PDF</button>
+                </div>
+                <input type="file" id="patientReportUploader" accept=".pdf,application/pdf" multiple hidden>
+                <div id="patientReportsList" class="patient-report-grid"></div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<div id="consultModal" class="modal">
+    <div class="modal-content" style="max-width:550px;">
+        <div class="modal-header">
+            <h3><i class="fas fa-calendar-check"></i> Book Consultation</h3>
+            <span class="close-modal" onclick="closeModal('consultModal')">&times;</span>
+        </div>
+        <form id="consultForm">
+            <input type="hidden" id="consultDoctorId">
+            <input type="hidden" id="consultDoctorName">
+            <div class="input-group"><i class="fas fa-user"></i><input type="text" id="consultPatientName" placeholder="Full Name" required></div>
+            <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="consultEmail" placeholder="Email" required></div>
+            <div class="input-group"><i class="fas fa-phone"></i><input type="tel" id="consultPhone" placeholder="Phone"></div>
+            <div class="input-group"><i class="fas fa-video"></i><select id="consultType"><option>Video Consultation</option><option>Audio Consultation</option></select></div>
+            <div class="input-group"><i class="fas fa-calendar-alt"></i><input type="datetime-local" id="consultDateTime"></div>
+            <div class="input-group"><i class="fas fa-notes-medical"></i><textarea id="symptoms" rows="3" placeholder="Describe symptoms"></textarea></div>
+            <div class="upload-section">
+                <label class="upload-label"><i class="fas fa-file-pdf"></i><span>Upload Medical Reports</span></label>
+                <div class="file-drop-zone" id="fileDropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop or click to browse</p>
+                    <input type="file" id="medicalReports" multiple accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div id="uploadedFilesList" class="uploaded-files-list"></div>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="btn-outline" onclick="closeModal('consultModal')">Cancel</button>
+                <button type="submit" class="btn-primary">Confirm Booking</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="videoModal" class="modal">
+    <div class="modal-content video-modal">
+        <div class="modal-header">
+            <h3 id="videoModalTitle"><i class="fas fa-video"></i> Video Consultation</h3>
+            <span class="close-modal" onclick="closeModal('videoModal')">&times;</span>
+        </div>
+        <div class="video-container">
+            <div class="video-local" id="localParticipantStage">
+                <div class="participant-empty" id="localParticipantEmpty">
+                    <i class="fas fa-user-circle"></i>
+                    <p>Connecting your camera and microphone...</p>
+                </div>
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-label">You</div>
+            </div>
+            <div class="video-remote" id="remoteParticipantStage">
+                <div class="remote-placeholder participant-empty" id="remoteParticipantEmpty"><i class="fas fa-user-md"></i><p>Waiting for doctor...</p></div>
+                <div class="video-label" id="remoteDoctorName">Doctor</div>
+            </div>
+        </div>
+        <div class="video-session-note" id="videoSessionNote">Secure Twilio consultation room is preparing...</div>
+        <div class="video-controls">
+            <button id="toggleMicBtn" class="control-btn"><i class="fas fa-microphone"></i></button>
+            <button id="toggleCamBtn" class="control-btn"><i class="fas fa-video"></i></button>
+            <button id="endCallBtn" class="control-btn end-call"><i class="fas fa-phone-slash"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="iotModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-bluetooth-b"></i> Connect ESP32 Device</h3>
+            <span class="close-modal" onclick="closeModal('iotModal')">&times;</span>
+        </div>
+        <p class="helper-text">Pair an ESP32 using Web Bluetooth. The device should send JSON vitals notifications.</p>
+        <div class="input-group"><i class="fas fa-fingerprint"></i><input type="text" id="bleServiceUuid" placeholder="BLE Service UUID"></div>
+        <div class="input-group"><i class="fas fa-wave-square"></i><input type="text" id="bleCharacteristicUuid" placeholder="BLE Characteristic UUID"></div>
+        <div id="deviceStatus" class="device-status"></div>
+        <div class="form-buttons">
+            <button id="scanDevicesBtn" class="btn-primary" type="button">Connect Device</button>
+            <button id="disconnectDeviceBtn" class="btn-outline" type="button">Disconnect</button>
+        </div>
+    </div>
+</div>
+
+<div id="scheduleConsultationModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-calendar-plus"></i> Schedule Consultation</h3>
+            <span class="close-modal" onclick="closeModal('scheduleConsultationModal')">&times;</span>
+        </div>
+        <form id="scheduleConsultationForm">
+            <input type="hidden" id="scheduleConsultationId">
+            <div class="input-group"><i class="fas fa-user"></i><input type="text" id="schedulePatientName" placeholder="Patient Name" readonly></div>
+            <div class="input-group"><i class="fas fa-clock"></i><input type="datetime-local" id="scheduleDateTime" required></div>
+            <div class="input-group"><i class="fas fa-headset"></i>
+                <select id="scheduleMode" required>
+                    <option value="Video Consultation">Video Consultation</option>
+                    <option value="Audio Consultation">Audio Consultation</option>
+                    <option value="Chat Consultation">Chat Consultation</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Save Schedule</button>
+        </form>
+    </div>
+</div>
+
+<div id="prescriptionModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-prescription-bottle-medical"></i> Write Prescription</h3>
+            <span class="close-modal" onclick="closeModal('prescriptionModal')">&times;</span>
+        </div>
+        <form id="prescriptionForm">
+            <input type="hidden" id="prescriptionConsultationId">
+            <input type="hidden" id="prescriptionPatientId">
+            <div class="input-group"><i class="fas fa-user"></i><input type="text" id="prescriptionPatientName" placeholder="Patient Name" readonly></div>
+            <div class="input-group"><i class="fas fa-capsules"></i><textarea id="prescriptionMedicines" rows="3" placeholder="Medicines and composition" required></textarea></div>
+            <div class="input-group"><i class="fas fa-syringe"></i><textarea id="prescriptionDosage" rows="2" placeholder="Dosage and duration"></textarea></div>
+            <div class="input-group"><i class="fas fa-notes-medical"></i><textarea id="prescriptionInstructions" rows="3" placeholder="Care notes and instructions"></textarea></div>
+            <div class="input-group"><i class="fas fa-calendar-check"></i><input type="date" id="prescriptionFollowUpDate"></div>
+            <button type="submit" class="btn-primary btn-full">Save Prescription</button>
+        </form>
+    </div>
+</div>
+
+<div id="patientProfileModal" class="modal">
+    <div class="modal-content auth-modal patient-profile-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-notes-medical"></i> Update Profile & History</h3>
+            <span class="close-modal" onclick="closeModal('patientProfileModal')">&times;</span>
+        </div>
+        <form id="patientProfileForm">
+            <div class="input-row">
+                <div class="input-group half"><i class="fas fa-tint"></i><input type="text" id="patientBloodGroup" placeholder="Blood Group"></div>
+                <div class="input-group half"><i class="fas fa-phone-alt"></i><input type="text" id="patientEmergencyContactPhone" placeholder="Emergency Contact Phone"></div>
+            </div>
+            <div class="input-group"><i class="fas fa-user-shield"></i><input type="text" id="patientEmergencyContactName" placeholder="Emergency Contact Name"></div>
+            <div class="input-group"><i class="fas fa-allergies"></i><textarea id="patientAllergies" rows="3" placeholder="Allergies, sensitivities, or medicines to avoid"></textarea></div>
+            <div class="input-group"><i class="fas fa-file-medical"></i><textarea id="patientMedicalHistory" rows="4" placeholder="Medical history, chronic conditions, surgeries, or ongoing treatment"></textarea></div>
+            <button type="submit" class="btn-primary btn-full">Save Profile</button>
+        </form>
+    </div>
+</div>
+
+<div id="chatModal" class="modal">
+    <div class="modal-content chat-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-comments"></i> Consultation Chat</h3>
+            <span class="close-modal" onclick="closeModal('chatModal')">&times;</span>
+        </div>
+        <div class="chat-shell">
+            <div class="chat-topbar">
+                <div class="chat-participant">
+                    <div class="chat-avatar"><i class="fas fa-user-circle"></i></div>
+                    <div class="chat-participant-copy">
+                        <div id="chatPatientLabel" class="chat-patient-label">Chat with patient</div>
+                        <div id="chatRoleHint" class="chat-role-hint">Secure doctor-patient consultation channel</div>
+                    </div>
+                </div>
+                <div id="chatStatusBanner" class="chat-status-banner">Secure doctor-patient chat</div>
+            </div>
+            <div id="chatTypingIndicator" class="chat-typing-indicator" style="display:none;">The other participant is typing...</div>
+            <div id="chatThread" class="chat-thread"></div>
+            <div id="chatAttachmentPreview" class="chat-attachment-preview" style="display:none;"></div>
+            <div class="chat-compose">
+                <div class="chat-compose-box">
+                    <button type="button" class="chat-attach-btn" id="chatAttachBtn" aria-label="Attach file"><i class="fas fa-paperclip"></i></button>
+                    <i class="fas fa-pen"></i>
+                    <input type="text" id="chatMessageInput" placeholder="Write a secure consultation message...">
+                </div>
+                <button type="button" class="btn-primary" id="sendChatMessageBtn"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+            <input type="file" id="chatAttachmentInput" accept=".pdf,.jpg,.jpeg,.png" hidden>
+        </div>
+    </div>
+</div>
+
+<div id="aiConsultationModal" class="modal">
+    <div class="modal-content ai-chat-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-robot"></i> Free AI Consultation</h3>
+            <span class="close-modal" onclick="closeModal('aiConsultationModal')">&times;</span>
+        </div>
+        <div class="ai-chat-disclaimer">
+            This assistant is for basic guidance only. For emergencies like chest pain, severe breathing trouble, stroke symptoms, or heavy bleeding, seek emergency care immediately.
+        </div>
+        <div class="ai-symptom-categories" id="aiSymptomCategories">
+            <button type="button" class="ai-symptom-card" data-prompt="I have fever, body pain, and weakness since yesterday.">
+                <i class="fas fa-temperature-high"></i>
+                <strong>Fever & Body Pain</strong>
+                <span>Infection, weakness, chills</span>
+            </button>
+            <button type="button" class="ai-symptom-card" data-prompt="I have cough, sore throat, and cold symptoms for 2 days.">
+                <i class="fas fa-head-side-cough"></i>
+                <strong>Cough & Cold</strong>
+                <span>Sore throat, mucus, blocked nose</span>
+            </button>
+            <button type="button" class="ai-symptom-card" data-prompt="I have stomach pain, vomiting, and loose motion since today.">
+                <i class="fas fa-stomach"></i>
+                <strong>Stomach & Digestion</strong>
+                <span>Pain, vomiting, acidity, dehydration</span>
+            </button>
+            <button type="button" class="ai-symptom-card" data-prompt="I have headache, dizziness, and weakness for 3 days.">
+                <i class="fas fa-brain"></i>
+                <strong>Headache & Dizziness</strong>
+                <span>Stress, migraine, low energy</span>
+            </button>
+        </div>
+        <div class="ai-quick-prompts" id="aiQuickPrompts">
+            <button type="button" class="ai-quick-chip" data-prompt="I have fever and body pain since last night.">Fever</button>
+            <button type="button" class="ai-quick-chip" data-prompt="I have cough, sore throat, and tiredness.">Cough</button>
+            <button type="button" class="ai-quick-chip" data-prompt="I have stomach pain and loose motion.">Stomach pain</button>
+            <button type="button" class="ai-quick-chip" data-prompt="I have headache and dizziness.">Headache</button>
+        </div>
+        <div class="ai-guided-panel">
+            <div class="ai-guided-group">
+                <span>Language</span>
+                <div class="ai-guided-chips" id="aiLanguageChips">
+                    <button type="button" class="ai-guided-chip" data-type="language" data-value="english">English</button>
+                    <button type="button" class="ai-guided-chip" data-type="language" data-value="simple">Simple English</button>
+                    <button type="button" class="ai-guided-chip" data-type="language" data-value="hindi">Hindi</button>
+                </div>
+            </div>
+            <div class="ai-guided-group">
+                <span>Age group</span>
+                <div class="ai-guided-chips" id="aiAgeGroupChips">
+                    <button type="button" class="ai-guided-chip" data-type="age" data-value="child">Child</button>
+                    <button type="button" class="ai-guided-chip" data-type="age" data-value="adult">Adult</button>
+                    <button type="button" class="ai-guided-chip" data-type="age" data-value="older adult">Older adult</button>
+                </div>
+            </div>
+            <div class="ai-guided-group">
+                <span>Duration</span>
+                <div class="ai-guided-chips" id="aiDurationChips">
+                    <button type="button" class="ai-guided-chip" data-type="duration" data-value="since today">Today</button>
+                    <button type="button" class="ai-guided-chip" data-type="duration" data-value="for 2 to 3 days">2-3 days</button>
+                    <button type="button" class="ai-guided-chip" data-type="duration" data-value="for more than a week">More than a week</button>
+                </div>
+            </div>
+            <div class="ai-guided-group">
+                <span>Severity</span>
+                <div class="ai-guided-chips" id="aiSeverityChips">
+                    <button type="button" class="ai-guided-chip" data-type="severity" data-value="mild">Mild</button>
+                    <button type="button" class="ai-guided-chip" data-type="severity" data-value="moderate">Moderate</button>
+                    <button type="button" class="ai-guided-chip" data-type="severity" data-value="severe">Severe</button>
+                </div>
+            </div>
+            <div class="ai-guided-group">
+                <span>Temperature if known</span>
+                <div class="ai-temperature-input">
+                    <i class="fas fa-thermometer-half"></i>
+                    <input type="text" id="aiTemperatureInput" placeholder="Example: 101 F or 38.5 C">
+                </div>
+            </div>
+            <div class="ai-guided-group">
+                <span>Symptom score</span>
+                <div class="ai-score-input">
+                    <input type="range" id="aiSeverityScoreInput" min="1" max="10" value="5">
+                    <div class="ai-score-meta">
+                        <span>Mild</span>
+                        <strong id="aiSeverityScoreValue">5/10</strong>
+                        <span>Severe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-consult-summary" id="aiConsultationSummary"></div>
+        <div class="ai-chat-thread" id="aiConsultationThread"></div>
+        <div class="ai-chat-compose">
+            <div class="chat-compose-box">
+                <i class="fas fa-comment-medical"></i>
+                <input type="text" id="aiConsultationInput" placeholder="Describe symptoms, age group, and how long you have felt unwell...">
+            </div>
+            <button type="button" class="btn-primary" id="sendAiConsultationBtn">Send</button>
+        </div>
+    </div>
+</div>
+
+<div id="forgotPasswordModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-key"></i> Forgot Password</h3>
+            <span class="close-modal" onclick="closeModal('forgotPasswordModal')">&times;</span>
+        </div>
+        <form id="forgotPasswordForm">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="text" id="forgotIdentifier" placeholder="Email ID or Phone Number" required>
+            </div>
+            <input type="hidden" id="forgotRole" value="">
+            <button type="submit" class="btn-primary btn-full">Send Reset OTP</button>
+        </form>
+        <p style="text-align:center; margin-top:1rem;"><a href="#" onclick="closeModal('forgotPasswordModal'); openModal('patientSignInModal')">Back to Sign In</a></p>
+    </div>
+</div>
+
+<div id="forgotOtpModal" class="modal">
+    <div class="modal-content auth-modal otp-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-key"></i> Verify OTP</h3>
+            <span class="close-modal" onclick="closeModal('forgotOtpModal')">&times;</span>
+        </div>
+        <p class="otp-info">OTP sent to <span id="forgotOtpIdentifierDisplay"></span></p>
+        <div class="otp-input-group">
+            <input type="text" id="forgotOtp1" maxlength="1" class="otp-input">
+            <input type="text" id="forgotOtp2" maxlength="1" class="otp-input">
+            <input type="text" id="forgotOtp3" maxlength="1" class="otp-input">
+            <input type="text" id="forgotOtp4" maxlength="1" class="otp-input">
+            <input type="text" id="forgotOtp5" maxlength="1" class="otp-input">
+            <input type="text" id="forgotOtp6" maxlength="1" class="otp-input">
+        </div>
+        <button id="forgotVerifyOtpBtn" class="btn-primary btn-full">Verify OTP</button>
+        <p class="resend-otp">Didn't receive OTP? <a href="#" id="forgotResendOtpBtn">Resend OTP</a></p>
+    </div>
+</div>
+
+<div id="resetPasswordModal" class="modal">
+    <div class="modal-content auth-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-lock"></i> Reset Password</h3>
+            <span class="close-modal" onclick="closeModal('resetPasswordModal')">&times;</span>
+        </div>
+        <form id="resetPasswordForm">
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="newPassword" placeholder="New Password" required>
+                <span class="toggle-password" onclick="togglePassword('newPassword')"><i class="fas fa-eye"></i></span>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-check-circle"></i>
+                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required>
+                <span class="toggle-password" onclick="togglePassword('confirmNewPassword')"><i class="fas fa-eye"></i></span>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Reset Password</button>
+        </form>
+    </div>
+</div>
+
+<div id="reportViewerModal" class="modal">
+    <div class="modal-content report-viewer-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-file-medical"></i> Patient Report Viewer</h3>
+            <span class="close-modal" onclick="closeModal('reportViewerModal')">&times;</span>
+        </div>
+        <div class="report-viewer-shell">
+            <div class="report-viewer-info">
+                <div class="report-viewer-meta">
+                    <h4 id="reportViewerName">Report name</h4>
+                    <p id="reportViewerDetails">PDF report details</p>
+                </div>
+                <div class="report-viewer-actions">
+                    <button type="button" class="btn-outline" id="reportViewerViewOnlyBtn">View PDF</button>
+                    <a id="reportViewerOpenLink" class="btn-primary report-action-link" href="#" target="_blank" rel="noopener noreferrer">Open PDF</a>
+                    <a id="reportViewerDownloadLink" class="btn-outline report-action-link" href="#" download>Download</a>
+                    <button type="button" class="btn-outline" id="openReportRenameModalBtn" style="display:none;">Rename</button>
+                </div>
+            </div>
+            <div class="report-preview-frame-wrap">
+                <iframe id="reportViewerFrame" class="report-preview-frame" title="Patient report preview"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="reportRenameModal" class="modal">
+    <div class="modal-content auth-modal rename-report-modal">
+        <div class="modal-header">
+            <h3><i class="fas fa-pen"></i> Rename Report</h3>
+            <span class="close-modal" onclick="closeModal('reportRenameModal')">&times;</span>
+        </div>
+        <div class="rename-report-shell">
+            <p class="rename-report-note">Update the report file name shown to both patient and doctor.</p>
+            <div class="rename-report-current">
+                <span>Current file</span>
+                <strong id="reportRenameCurrentName">patient-report.pdf</strong>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-file-signature"></i>
+                <input type="text" id="reportRenameInput" placeholder="Enter report file name">
+            </div>
+            <div class="rename-report-preview">
+                <span>New file name</span>
+                <strong id="reportRenamePreviewName">patient-report.pdf</strong>
+            </div>
+            <div class="rename-report-actions">
+                <button type="button" class="btn-outline" onclick="closeModal('reportRenameModal')">Cancel</button>
+                <button type="button" class="btn-primary" id="saveReportRenameBtn">Save Name</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://sdk.twilio.com/js/video/releases/2.29.0/twilio-video.min.js"></script>
+<script type="module" src="script.js?v=20260412-2"></script>
+</body>
+</html>
