@@ -11,6 +11,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "nodemailer": "^8.0.5",
     "twilio": "^5.13.1"
   }
 }
