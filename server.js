@@ -47,15 +47,20 @@ function serveStatic(req, res) {
   });
 }
 
-const server = http.createServer(async (req, res) => {
+async function requestHandler(req, res) {
   if (req.url.startsWith('/api/')) {
     await handleApiRequest(req, res);
     return;
   }
 
   serveStatic(req, res);
-});
+}
 
-server.listen(config.port, () => {
-  console.log(`MediSync running at ${config.appBaseUrl}`);
-});
+module.exports = requestHandler;
+
+if (require.main === module) {
+  const server = http.createServer(requestHandler);
+  server.listen(config.port, () => {
+    console.log(`MediSync running at ${config.appBaseUrl}`);
+  });
+}
