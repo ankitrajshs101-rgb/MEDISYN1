@@ -3078,20 +3078,26 @@ async function submitResetPassword() {
 
 async function loadPublicConfig() {
     const response = await apiRequest('/api/config/public');
-    state.publicConfig = response;
-    if (qs('bleServiceUuid')) qs('bleServiceUuid').value = response.bleServiceUuid;
-    if (qs('bleCharacteristicUuid')) qs('bleCharacteristicUuid').value = response.bleCharacteristicUuid;
+    state.publicConfig = {
+        bleServiceUuid: response?.bleServiceUuid || '',
+        bleCharacteristicUuid: response?.bleCharacteristicUuid || '',
+        videoProvider: response?.videoProvider || '',
+        twilioVideoEnabled: Boolean(response?.twilioVideoEnabled)
+    };
+    if (qs('bleServiceUuid')) qs('bleServiceUuid').value = state.publicConfig.bleServiceUuid;
+    if (qs('bleCharacteristicUuid')) qs('bleCharacteristicUuid').value = state.publicConfig.bleCharacteristicUuid;
 }
 
 async function loadApprovedDoctors() {
     const response = await apiRequest('/api/doctors');
     const container = qs('doctorsGrid');
     if (!container) return;
-    if (!response.doctors.length) {
+    const doctors = Array.isArray(response?.doctors) ? response.doctors : [];
+    if (!doctors.length) {
         container.innerHTML = '<div class="doctor-card"><h3>No approved doctors yet</h3><p>The owner can approve doctor accounts from the admin console.</p></div>';
         return;
     }
-    container.innerHTML = response.doctors.map((doctor) => `
+    container.innerHTML = doctors.map((doctor) => `
         <div class="doctor-card">
             <div class="doctor-avatar"><i class="fas fa-user-md"></i></div>
             <h3>Dr. ${doctor.fullName}</h3>
