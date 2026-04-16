@@ -18,7 +18,8 @@ const mimeTypes = {
 };
 
 function serveStatic(req, res) {
-  let requestPath = req.url.split('?')[0];
+  const normalizedUrl = new URL(req.url, `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host || 'localhost'}`);
+  let requestPath = normalizedUrl.pathname;
   if (requestPath === '/') {
     requestPath = '/index.html';
   }
@@ -48,7 +49,10 @@ function serveStatic(req, res) {
 }
 
 async function requestHandler(req, res) {
-  if (req.url.startsWith('/api/')) {
+  const normalizedUrl = new URL(req.url, `${req.headers['x-forwarded-proto'] || 'http'}://${req.headers.host || 'localhost'}`);
+  req.url = `${normalizedUrl.pathname}${normalizedUrl.search}`;
+
+  if (normalizedUrl.pathname.startsWith('/api/')) {
     await handleApiRequest(req, res);
     return;
   }
